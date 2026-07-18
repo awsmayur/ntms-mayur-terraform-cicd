@@ -1,24 +1,24 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "ntms-rg-mayur"
-  location = "East US"
+  name     = "{var.environment}-{var.business_unit}-rg-mayur"
+  location = var.location
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  name                = "ntms-vnet-mayur"
-  address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.rg.location
+  name                = "{var.environment}-{var.business_unit}-vnet-mayur"
+  address_space       = var.vnet_address_space
+  location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
 }
 
 resource "azurerm_subnet" "subnet" {
-  name                 = "ntms-snet-mayur"
+  name                 = "{var.environment}-{var.business_unit}-{var.subnet_name}-mayur"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = ["10.0.1.0/24"]
+  address_prefixes     = var.sunet_prefix
 }
 
 resource "azurerm_network_security_group" "nsg" {
-  name                = "ntms-nsg-mayur"
+  name                = "{var.environment}-{var.business_unit}-nsg-mayur"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }
