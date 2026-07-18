@@ -1,5 +1,5 @@
-resource "azurerm_resource_group" "rg" {
-  name     = "{var.environment}-{var.business_unit}-mayur"
+resource "azurerm_resource_group" "rg-mayur" {
+  name     = "{var.environment}-{var.business_unit}-rg-mayur"
   location = var.location
 }
 
