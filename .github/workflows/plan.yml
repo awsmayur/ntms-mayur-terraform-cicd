@@ -47,7 +47,7 @@ jobs:
         working-directory: ./terraform-infra
 
       - name: Terraform plan
-        run: terraform plan
+        run: terraform plan -var-file="dev.tfvars"
         working-directory: ./terraform-infra
         env: 
            ARM_CLIENT_ID:       ${{ secrets.ARM_CLIENT_ID }}
