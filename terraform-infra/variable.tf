@@ -25,7 +25,7 @@ variable "vnet_address_space" {
 }
 
 
-variable "sunet_name" {
+variable "subnet_name" {
   type    = string
   default = "mayur-snet"
 
