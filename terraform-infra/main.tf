@@ -12,7 +12,7 @@ resource "azurerm_virtual_network" "vnet" {
 }
 
 resource "azurerm_subnet" "subnet" {
-  name                 = "${var.environment}-${var.business_unit}-${var.subnet_name}-mayur"
+  name                 = "${var.environment}-${var.business_unit}-subnet_name-mayur"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = var.sunet_prefix
