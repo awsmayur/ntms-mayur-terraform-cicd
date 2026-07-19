@@ -13,7 +13,6 @@ terraform {
     key                  = "ntms.tfstate"
   }
 }
-
 provider "azurerm" {
   features {}
 }
