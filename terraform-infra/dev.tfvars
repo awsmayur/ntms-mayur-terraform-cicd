@@ -1,3 +1,3 @@
-envienvironment = "dev"
-location = "East US"
-business_unit = "IT"
+environment = "dev"
+location        = "East US"
+business_unit   = "IT"

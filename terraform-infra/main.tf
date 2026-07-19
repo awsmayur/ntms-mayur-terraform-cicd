@@ -1,4 +1,3 @@
-
 resource "azurerm_resource_group" "rg" {
   name     = "${var.environment}-${var.business_unit}-rg"
   location = var.location
@@ -20,7 +19,7 @@ resource "azurerm_subnet" "subnet" {
 
 resource "azurerm_network_security_group" "nsg" {
   name                = "${var.environment}-${var.business_unit}-nsg"
-  location          = azurerm_resource_group.rg.location
+  location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }
 
