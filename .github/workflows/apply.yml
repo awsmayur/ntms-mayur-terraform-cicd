@@ -55,7 +55,7 @@ jobs:
            ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
 
       - name: Terraform apply
-        run: terraform apply -var-file="dev.tfvars" -auto-approve
+        run: terraform apply -var-file="prod.tfvars" -auto-approve
         working-directory: ./terraform-infra
         env: 
            ARM_CLIENT_ID:       ${{ secrets.ARM_CLIENT_ID }}
