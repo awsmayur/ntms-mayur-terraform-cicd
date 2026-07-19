@@ -32,8 +32,8 @@ jobs:
         run: terraform fmt -check -recursive
         working-directory: ./terraform-infra
 
-      - name: Terraform init
-        run: terraform init
+      - name: Terraform init and upgrade
+        run: terraform init -upgrade
         working-directory: ./terraform-infra
         env: 
            ARM_CLIENT_ID:       ${{ secrets.ARM_CLIENT_ID }}
