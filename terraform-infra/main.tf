@@ -1,24 +1,24 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "${var.environment}-${var.business_unit}-rg"
+  name     = local.rg_name
   location = var.location
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  name                = "${var.environment}-${var.business_unit}-vnet"
+  name                = local.vnet_name
   address_space       = var.vnet_address_space
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
 }
 
 resource "azurerm_subnet" "subnet" {
-  name                 = "${var.environment}-${var.business_unit}-${var.subnet_name}"
+  name                 = "${local.prefix}-${var.subnet_name}"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = var.subnet_prefix
 }
 
 resource "azurerm_network_security_group" "nsg" {
-  name                = "${var.environment}-${var.business_unit}-nsg"
+  name                = local.nsg_name
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }
